@@ -1,0 +1,27 @@
+
+<mat-form-field style="width: 40%;">
+    <mat-label>Status</mat-label>
+  <mat-select [value] = "statusID"   
+   (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+   matSelect required>
+    <mat-option value=""></mat-option>
+    <mat-option value="1">Active</mat-option>
+    <mat-option value="2">Inactive</mat-option>
+    <mat-option value="3">Terminated</mat-option>
+
+   <!-- <mat-option *ngFor="let estatus of employeeStatuses" [value]="estatus.value">
+      {{ estatus.status }}
+    </mat-option> -->
+      
+    </mat-select>
+    <mat-error>Status is required</mat-error>
+
+  </mat-form-field>
+
+
+ 
+
+
+
+
+ 

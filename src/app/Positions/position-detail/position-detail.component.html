@@ -1,0 +1,20 @@
+
+@let position = (position$ | async)!;
+
+<div class="inner-margin">
+
+<h1>Position Detail</h1>
+
+<mat-label style="font-weight: bold; width: 40%;">Name</mat-label><br />
+    <mat-label style="width: 40%;" >{{position.name}}</mat-label>
+    <br /><br />
+
+    <mat-label style="font-weight: bold; width: 40%;">Description</mat-label><br />
+    <div style="width: 40%; height: 225px; overflow: auto; border-style: solid; border-width: 1px; border-color: black; border-radius: 4px;">{{position.description}}</div>
+    <br /><br />
+
+    <mat-label style="font-weight: bold; width: 40%;">Active</mat-label><br />
+    <div style="width: 40%; height: 225px; overflow: auto;">{{position.active}}</div>
+    <br /><br />
+
+</div>

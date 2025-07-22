@@ -1,0 +1,51 @@
+
+
+    <h1>Add Activity Log</h1>
+   
+
+    <form [formGroup]="activityLogForm" (ngSubmit)="onSubmit()">
+
+         <mat-form-field style="width: 40%;">
+            <mat-label>Employee Number</mat-label>
+            <input formControlName="employeenumber" matInput required />
+            <mat-error>Employee Number is required</mat-error>
+        </mat-form-field><br />
+
+          <mat-form-field style="width: 40%;">
+            <mat-label>Activity Number</mat-label>
+            <input formControlName="activitynumber" matInput required />
+            <mat-error>Employee Number is required</mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field style="width: 40%;">
+            <mat-label>Date/Time Activity Began</mat-label>
+            <input formControlName="dateBeginActivity" [matDatepicker]="picker" matInput />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          
+        </mat-form-field><br />
+
+
+        <mat-form-field style="width: 40%;">
+            <mat-label>Date/Time Activity Ended</mat-label>
+            <input formControlName="dateEndedActivity" [matDatepicker]="picker2" matInput />
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          
+        </mat-form-field><br />
+
+        <mat-form-field style="width: 40%;">
+            <mat-label>Units Of Work</mat-label>
+            <input formControlName="unitsofwork" matInput />
+            
+        </mat-form-field><br />
+
+        <div style="width: 40%;">
+            <button mat-raised-button type="submit" [disabled]="loading">
+                Save
+            </button><br />
+        </div>
+
+
+        
+    </form>

@@ -1,0 +1,70 @@
+
+<div style="margin-left: 5%; width: 100%;">
+
+    @if(isAddMode){
+    <h1>Add Deduction</h1>
+    }
+    @else{
+    <h1>Edit Deduction</h1>
+    }
+
+    <form [formGroup]="deductionForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field style="width: 40%;">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput required maxlength="45"/>
+            <mat-error>Name is required</mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field style="width: 40%;">
+            <mat-label>Description</mat-label>
+            <input formControlName="description" matInput required maxlength="100"/>
+            <mat-error>Description is required</mat-error>
+        </mat-form-field><br />
+
+       <app-deducton-types
+        [deductionTypeID]="deductionTypeID"
+        (selectionChange)="handleDeductionTypeChangeSelection($event)">
+       </app-deducton-types>
+
+       <br />
+       <app-deduction-pay-metrics
+       [payMetricTypeID]="payMetricTypeID"
+       (selectionChange)="handlePayMetricTypeChangeSelection($event)">
+       </app-deduction-pay-metrics><br />
+
+        <div [hidden] = "!showamount">
+
+            <mat-form-field style="width: 40%;">
+                <mat-label>Fixed Amount</mat-label>
+                <input formControlName="amount" matInput/>
+            
+            </mat-form-field><br />
+
+        </div>
+
+        <div [hidden]="!showpercent">
+
+            <mat-form-field style="width: 40%;" >
+                <mat-label>Percentage</mat-label>
+                <input formControlName="percentage" matInput/>
+            
+            </mat-form-field><br />
+
+        </div>
+        <br />
+          <mat-checkbox [checked]="activeStatus"  formControlName="active" (change)="handleActiveChangeSelection($event)">
+                Active/Inactive
+         </mat-checkbox>
+
+        <div style="width: 40%;">
+            <button mat-raised-button type="submit" [disabled]="loading">
+                Save
+            </button><br />
+        </div>
+
+    
+
+    </form>
+
+</div> 

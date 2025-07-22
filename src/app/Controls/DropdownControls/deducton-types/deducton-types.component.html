@@ -1,0 +1,18 @@
+
+ <mat-form-field style="width: 40%;">
+    <mat-label>Deduction Type</mat-label>
+    <mat-select [value]="deductionTypeID"
+    (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+    matSelect required>
+        <mat-option value=""></mat-option>
+        <mat-option value="1">Benefit</mat-option>
+        <mat-option value="2">Taxable Benefit</mat-option>
+        <mat-option value="3">State Tax Withholding</mat-option>
+        <mat-option value="4">Federal Tax Withholding</mat-option>
+        <mat-option value="5">Local Tax Withholding</mat-option>
+        <mat-option value="6">Deduction Withholding</mat-option>
+        <mat-option value="7">Other</mat-option>
+    </mat-select>
+    <mat-error>Deduction type is required</mat-error>
+
+</mat-form-field>

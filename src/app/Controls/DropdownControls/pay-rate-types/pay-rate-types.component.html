@@ -1,0 +1,12 @@
+ <mat-form-field style="width: 40%;">
+    <mat-label>Rate Type</mat-label>
+    <mat-select [value] = "rateID"  
+    (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+    matSelect required>
+        <mat-option value=""></mat-option>
+        <mat-option value="1">Hourly</mat-option>
+        <mat-option value="2">Salary</mat-option>
+    </mat-select>
+    <mat-error>Rate type is required</mat-error>
+
+</mat-form-field>

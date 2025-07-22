@@ -1,0 +1,70 @@
+
+@let payments = (payments$ | async)!;
+
+<h1>Payments</h1>
+
+<a href="#" routerLink="/createpayment">Create Payment</a><br />
+ &nbsp; &nbsp; &nbsp; &nbsp; 
+
+ <a href="#" style="float:right;" (click)="refreshPayments($event)">Refresh</a>
+
+@if(payments){
+
+<table mat-table [dataSource]="payments">
+
+    <ng-container matColumnDef="employeenumber">
+         <th mat-header-cell *matHeaderCellDef>Employee Number</th>
+          <td mat-cell *matCellDef="let payments">
+            <a data-tooltip="View Details" style="color: black;" [routerLink]="['/employeedetail', payments.employee.id]">{{ payments.employee.employeeNumber ?? "Not found" }}</a>
+          </td>
+
+      </ng-container>
+
+     <ng-container matColumnDef="checknumber">
+        <th mat-header-cell *matHeaderCellDef>Check Number</th>
+        <td mat-cell *matCellDef="let payments">
+            {{ payments.checkNumber }}
+        </td>
+    </ng-container>
+
+      
+
+     <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let payments">
+            {{ payments.amount }}
+        </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="datepaid">
+        <th mat-header-cell *matHeaderCellDef>Date Paid</th>
+        <td mat-cell *matCellDef="let payments">
+            {{ payments.datePaid | date:'MM/dd/yyyy'}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+         <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let payment">
+            <a data-tooltip="Details" style="color: black;" [routerLink]="['/paymentdetail', payment.id]">Details</a>&nbsp;
+            <a data-tooltip="Activities" style="color: black;" [routerLink]="['/notimplemented']">Activities</a>
+          </td>
+
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="edit">
+         <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let payment">
+            <a style="color: black;" [routerLink]="['/notimplemented']">Activities</a>
+          </td>
+
+      </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
+
+</table>
+
+}@else{
+No Payments
+}

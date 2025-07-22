@@ -1,0 +1,92 @@
+
+    @let employees = (employees$ | async)!;
+    
+    @if(employees){
+    
+    <h1>Employees </h1>
+    
+    <input style="width: 250px;" (keyup.enter)="applyFilter($event)" placeholder="Search By Employee Number">
+
+    &nbsp; &nbsp; &nbsp; &nbsp; 
+
+    <a href="#" routerLink="/employee-add-edit">Add Employee</a>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; 
+
+    <a href="#" style="float:right;" (click)="refreshEmployees($event)">Refresh</a>
+      
+    <table mat-table [dataSource]="employees">
+   
+       <ng-container matColumnDef="employeenumber">
+        <th mat-header-cell *matHeaderCellDef>Employee Number</th>
+        <td mat-cell *matCellDef="let employee">
+           <a data-tooltip="View Details" style="color: black;" [routerLink]="['/employeedetail', employee.id]">{{ employee.employeeNumber }}</a>
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let employee">
+          {{ employee.title ?? ""}}
+        </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.firstName }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.lastName }}</td>
+      </ng-container>
+    
+      <!-- <ng-container matColumnDef="datehired">
+        <th mat-header-cell *matHeaderCellDef>Date Hired</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.dateHired | date:'MM/dd/yyyy' }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="dateterminated">
+        <th mat-header-cell *matHeaderCellDef>Date Terminated</th>
+        <td mat-cell *matCellDef="let employee">{{ employee.dateTerminated ?? '' | date:'MM/dd/yyyy' }}</td>
+      </ng-container> -->
+
+        <ng-container matTooltip="status" matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let employee">{{employee.employeeStatus.status  }}</td>
+      </ng-container>  
+
+       <ng-container matColumnDef="edit">
+         <th  mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let employee">
+            <a  data-tooltip="Edit" style="color: black;" [routerLink]="['/employee-add-edit', employee.id ]">Edit</a>&nbsp;|&nbsp;
+            
+             <a  data-tooltip="Payment" style="color: black;" [routerLink]="['/createpayment', employee.id, employee.employeeNumber ]">Pay</a>&nbsp;|&nbsp;
+            <a  data-tooltip="Act Log" style="color: black;" [routerLink]="['/selectactivity', employee.id, employee.employeeNumber ]">Log Act</a>&nbsp;|&nbsp;
+           
+            <a data-tooltip="Depts" style="color: black;" [routerLink]="['/departmentselect', employee.id]">Depts</a>&nbsp;|&nbsp;
+            <a data-tooltip="Positions" style="color: black;" [routerLink]="['/positionselect', employee.id]">Pos</a>&nbsp;|&nbsp;
+            <a data-tooltip="Deductions" style="color: black;" [routerLink]="['/deductionselect', employee.id]">Ded</a>&nbsp;|&nbsp;
+            <a data-tooltip="Address" style="color: black;" [routerLink]="['/notimplemented']">Addr</a>
+           
+            <br />
+          </td>
+
+      </ng-container>
+
+        
+      <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnNames;"></tr> 
+    
+    </table>
+       
+    }@else{
+    No Employees
+    }
+
+
+    
+<!-- <app-employee-detail [id]="selectedEmployee?.employeeid" /> -->
+
+
+   

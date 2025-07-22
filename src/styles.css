@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.inner-margin{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+a {
+    position: relative; /* Essential for positioning the tooltip relative to the anchor */
+    text-decoration: none;
+    color: #007bff;
+   
+}
+
+a[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    padding: 8px 12px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 120%; /* Position the tooltip above the anchor */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+a[data-tooltip]::after {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+a[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    height: 40px;
+    
+}

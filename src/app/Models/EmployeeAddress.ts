@@ -1,0 +1,17 @@
+/*
+  This is a demo application developed by Gordon Daniel demonstrating how a payroll
+  application might work.  It is covered under the MIT license.
+  The application is presently incomplete and demonstrats a few basic functions.
+*/
+import { IID } from "../Interfaces/IID";
+import { AddressModel } from "./AddressModel";
+import { EmployeeModel } from "./EmployeeModel";
+
+export interface EmployeeAddress extends IID{
+
+
+    employee : EmployeeModel;
+    address : AddressModel;
+    active : boolean;
+    dateInactive: Date;
+}

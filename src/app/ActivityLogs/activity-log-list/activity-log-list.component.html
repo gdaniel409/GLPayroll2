@@ -1,0 +1,74 @@
+@let activityLog = (activityLogs$ | async)!;
+
+
+@if(activityLog){
+
+<h1>Activity Log</h1>
+
+<!-- <a href="#" routerLink="/createactivitylog">Add Activity Log</a> -->
+ &nbsp; &nbsp; &nbsp; &nbsp; 
+
+    <a href="#" style="float:right;" (click)="refreshActivityLog($event)">Refresh</a>
+
+<table mat-table [dataSource]="activityLog">
+
+      <ng-container matColumnDef="activitynumber">
+            <th mat-header-cell *matHeaderCellDef>Activity Number</th>
+            <td mat-cell *matCellDef="let activitylog">
+                 
+                  <a data-tooltip="View Details" style="color: black;" [routerLink]="['/activitydetail', activitylog.activityID]">{{ activitylog.activityNumber ?? "Not found" }}</a>
+            </td>
+      </ng-container>
+
+       <!-- <ng-container matColumnDef="employeenumber">
+            <th mat-header-cell *matHeaderCellDef>Employee Number</th>
+            <td mat-cell *matCellDef="let activitylog">
+                  {{ activitylog.employeeNumber}}
+            </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="employeenumber">
+         <th mat-header-cell *matHeaderCellDef>Employee Number</th>
+          <td mat-cell *matCellDef="let activitylog">
+            <a data-tooltip="View Details" style="color: black;" [routerLink]="['/employeedetail', activitylog.employeeID]">{{ activitylog.employeeNumber ?? "Not found" }}</a>
+          </td>
+
+      </ng-container>
+
+      <ng-container matColumnDef="unitsofwork">
+            <th mat-header-cell *matHeaderCellDef>Units Of Work</th>
+            <td mat-cell *matCellDef="let activitylog">
+                  {{ activitylog.unitsOfWork}}
+            </td>
+      </ng-container>
+
+      <ng-container matColumnDef="datetimebegin">
+            <th mat-header-cell *matHeaderCellDef>Date/Time Begin</th>
+            <td mat-cell *matCellDef="let activitylog">
+                  {{ activitylog.dateTimeBeginActivity | date:'MM/dd/yyyy'}}
+            </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="datetimeend">
+            <th mat-header-cell *matHeaderCellDef>Date/Time End</th>
+            <td mat-cell *matCellDef="let activitylog">
+                  {{ activitylog.dateTimeEndActivity | date:'MM/dd/yyyy'}}
+            </td>
+      </ng-container>
+
+      <ng-container matColumnDef="resolved">
+            <th mat-header-cell *matHeaderCellDef>Resolved</th>
+            <td mat-cell *matCellDef="let activitylog">
+                  {{ activitylog.resolved}}
+            </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
+
+</table>
+
+}@else{
+Activity Log Not Set
+}

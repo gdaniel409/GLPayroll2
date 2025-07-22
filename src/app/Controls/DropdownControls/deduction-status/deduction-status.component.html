@@ -1,0 +1,16 @@
+
+
+<mat-form-field style="width: 40%;">
+    <mat-label>Status</mat-label>
+    <mat-select [value]="deductionStatusID" formControlName="active" 
+         (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+        matSelect required>
+        <mat-option value=""></mat-option>
+        <mat-option value="0">Inactive</mat-option>
+        <mat-option value="1">Active</mat-option>
+                  
+                
+    </mat-select>
+    <mat-error>Active/Inactive is required</mat-error>
+
+</mat-form-field>

@@ -1,0 +1,14 @@
+
+<mat-form-field style="width: 40%;" >
+    <mat-label>Pay Metric</mat-label>
+    <mat-select [value]="payMetricTypeID"  
+    (selectionChange)="onSelectionChange($event)" [compareWith]="compare"
+    matSelect required>
+        <mat-option value=""></mat-option>
+        <mat-option value="1">Percentage</mat-option>
+        <mat-option value="2">Fixed Amount</mat-option>
+        <mat-option value="3">Both</mat-option>
+                
+    </mat-select>
+<mat-error>Deduction Metric is required</mat-error>
+</mat-form-field>

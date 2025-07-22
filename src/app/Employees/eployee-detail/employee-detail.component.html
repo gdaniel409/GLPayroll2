@@ -1,0 +1,55 @@
+
+@let employee=(employee$ | async)!;
+<div class="inner-margin">
+
+<h1>Employee Detail</h1>
+
+<mat-label style="font-weight: bold; ">Employee Number</mat-label><br />
+<mat-label>{{employee.employeeNumber}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Employee Name</mat-label><br />
+<mat-label>{{employee.title + ' ' + employee.firstName + ' ' + employee.lastName}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Rate</mat-label><br />
+<mat-label>{{employee.rate}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Rate Description</mat-label><br />
+<mat-label>{{employee.rateType.description}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Status</mat-label><br />
+<mat-label>{{employee.employeeStatus.status}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Email</mat-label><br />
+<mat-label>{{employee.email}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Telephone Landline</mat-label><br />
+<mat-label>{{employee.telephoneLandline}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Telephone Cell</mat-label><br />
+<mat-label>{{employee.telephoneCell}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">SSN (Last 4)</mat-label><br />
+<mat-label>{{employee.ssn}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Date Hired</mat-label><br />
+<mat-label>{{employee.dateHired | date:'MM/dd/yyyy'}}</mat-label>
+<br /><br />
+
+<mat-label style="font-weight: bold; ">Date Terminated</mat-label><br />
+<mat-label>{{employee.dateTerminated | date:'MM/dd/yyyy'}}</mat-label>
+<br /><br />
+
+</div>
+
+
+
+

@@ -1,0 +1,117 @@
+@let deductions = (deductions$ | async)!;
+
+<h1>Deductions </h1>
+
+@if(deductions){
+
+<table mat-table [dataSource]="deductions">
+
+    <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let deduction">
+      <mat-checkbox (change)="handleSelectionChangeSelection($event, deduction.deduction.id)" [checked]="deduction.selected">
+        Select
+      </mat-checkbox>
+    </td>
+
+    </ng-container>
+
+     <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let deduction">
+                <a data-tooltip="View Details" style="color: black;" [routerLink]="['/deductiondetail', deduction.deduction.id]">{{ deduction.deduction.name}}</a>
+                <!-- {{ deduction.deduction.name }} -->
+            </td>
+        </ng-container> 
+
+     <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.description }}
+            </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="deductiontype">
+            <th mat-header-cell *matHeaderCellDef>D-Type</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.deductionType.description}}
+            </td>
+        </ng-container>  
+
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.amount}}
+            </td>
+        </ng-container>  
+
+        <ng-container matColumnDef="percentage">
+            <th mat-header-cell *matHeaderCellDef>Percentage</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.percentage}}
+            </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="paymetric">
+            <th mat-header-cell *matHeaderCellDef>P-Metric</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.deductionMetric.description}}
+            </td>
+        </ng-container> 
+    <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.name ?? "Null"}}
+            </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.description ?? "Null"}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deductiontype">
+            <th mat-header-cell *matHeaderCellDef>D-Type</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.deductionType.description ?? ""}}
+            </td>
+        </ng-container>  
+
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Amount</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.amount ?? ""}}
+            </td>
+        </ng-container>  
+
+        <ng-container matColumnDef="percentage">
+            <th mat-header-cell *matHeaderCellDef>Percentage</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.percentage ?? ""}}
+            </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="paymetric">
+            <th mat-header-cell *matHeaderCellDef>P-Metric</th>
+            <td mat-cell *matCellDef="let deduction">
+                {{ deduction.deduction.deductionMetric.description ?? ""}}
+            </td>
+        </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
+
+</table>
+
+<div style="width: 40%;">
+    <button mat-raised-button type="button" (click)=" setDeductionsForEmployee($event)" [disabled]="loading">
+        Save
+    </button><br />
+</div>
+}@else{
+
+No Deductions Found
+
+}

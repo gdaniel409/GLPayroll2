@@ -1,0 +1,44 @@
+
+@let payment = (payment$ | async)!;
+
+<div style="margin-left: 5%; width: 100%;">
+
+
+    <h1>Payment Detail</h1>
+
+  
+   
+        <mat-label style="font-weight: bold; ">Employee Number</mat-label><br />
+        <mat-label>{{payment.employee.employeeNumber}}</mat-label>
+    <br /><br />
+
+        <mat-label style="font-weight: bold; ">Employee Name</mat-label><br />
+        <mat-label>{{payment.employee.firstName}}&nbsp;{{payment.employee.lastName  }}</mat-label>
+    <br /> <br />
+
+     <mat-label style="font-weight: bold; ">Amount</mat-label><br />
+     <mat-label>{{payment.amount}}</mat-label>
+     <br /> <br />
+
+     <mat-label style="font-weight: bold; ">Check Number</mat-label><br />
+     <mat-label>{{payment.checkNumber}}</mat-label>
+     <br /> <br />
+
+     <mat-label style="font-weight: bold; ">Start Period</mat-label><br />
+     <mat-label>{{payment.startPeriod | date:'MM/dd/yyyy'}}</mat-label>
+     <br /> <br />
+
+     <mat-label style="font-weight: bold; ">End Period</mat-label><br />
+     <mat-label>{{payment.endPeriod | date:'MM/dd/yyyy'}}</mat-label>
+     <br /> <br />
+
+     
+
+        <mat-label style="font-weight: bold;">Description</mat-label><br />
+        <mat-label>{{payment.note}}</mat-label>
+     <br /> <br />
+
+
+</div>
+
+
