@@ -31,7 +31,7 @@
         Contact  Gordon: gordondaniel409@gmail.com.
   
 
-        if using VS Code:
+        To install:
 
         npm install
 
