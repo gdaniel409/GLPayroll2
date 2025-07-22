@@ -27,6 +27,8 @@
         GLPayroll UI can be downloaded from https://github.com/gdaniel409/GLPayroll2. 
         The API can be downloaded from https://github.com/gdaniel409/SubsidiaryAPI.
         To see a demo version go to https://www.audiosl.com/glpayroll.
+
+        Contact  Gordon: gordondaniel409@gmail.com.
   
 
         if using VS Code:
