@@ -38,20 +38,29 @@ export class PositionsSelectComponent {
 
   positions$ : Observable<EmployeePositionForEmployee[]> | undefined;
   employeeID : number = -1
+  employeeNumber : string = "";
   
   ngOnInit(): void {
 
     this.employeeID = Number(this.route.snapshot.params['id']);
+    this.employeeNumber = this.route.snapshot.params['number'];
+
     this.getPositionsForEmployee();
+  }
+
+  refreshPositionsForEmployee($event?: Event){
+
+    if($event != undefined){
+      $event.preventDefault();
+    }
+
+    this.positions$ = this.http.refresh(this.employeeID);
+
   }
 
   getPositionsForEmployee(){
 
-   this.http.getAncillary(this.employeeID).subscribe({
-    next: data=>{
-      this.positions$ = of(data);
-    }
-   });
+   this.positions$ = this.http.getAncillary(this.employeeID);
 
   }
 

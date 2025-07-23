@@ -15,8 +15,7 @@ import { EmployeePositionForEmployee } from '../../Models/EmployeePositionForEmp
 export class EmployeePositionService 
   extends AncillaryHttpService<EmployeePositionForEmployee>{
   public override apiString: string;
-  override downloaded: boolean = false;
-
+  
   constructor() { 
     super();
     this.apiString = "getpositionsforemployee";

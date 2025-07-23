@@ -45,22 +45,29 @@ export class DeductionsSelectComponent {
 
   deductions$ : Observable<EmployeeDeductionForEmployee[]> | undefined;
  
-  employeeID : number = -1
+  employeeID : number = -1;
+  employeeNumber: string = "";
 
   ngOnInit(): void {
 
     this.employeeID = Number(this.route.snapshot.params['id']);
+    this.employeeNumber = this.route.snapshot.params['number'];
+
     this.getDeductionsForEmployee();
   }
 
+  refreshDeductionsForEmployee($event?: Event){
 
+    if($event != undefined){
+      $event.preventDefault();
+    }
+
+    this.deductions$ = this.httpGet.refresh(this.employeeID);
+
+  }
   getDeductionsForEmployee(){
 
-    this.httpGet.getAncillary(this.employeeID).subscribe({
-    next: (data)=>{
-        this.deductions$ = of(data);
-    }
-   }); 
+    this.deductions$ = this.httpGet.getAncillary(this.employeeID);
 
   }
 

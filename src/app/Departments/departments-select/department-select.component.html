@@ -5,6 +5,12 @@
 
 @if(departments){
 
+   <label>Employee Number:&nbsp;&nbsp;
+       <a data-tooltip="View Details" style="color: black; text-decoration: underline;" [routerLink]="['/employeedetail', employeeID]">{{ employeeNumber }}</a>
+   </label>
+
+<a data-tooltip="Reload" href="#" style="float:right;" (click)="refreshDepartmentsForEmployee($event)">Refresh</a>
+
 <table mat-table [dataSource]="departments">
 
   <ng-container matColumnDef="select">

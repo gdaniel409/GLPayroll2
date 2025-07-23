@@ -18,36 +18,35 @@ export abstract class AncillaryHttpService<model> {
   private http = inject(HttpClient);
   private appSettings = inject(APP_SETTINGS);
   public abstract apiString: string;
-  abstract downloaded: boolean;
+ 
 
   list: model[]=[];
 
   constructor() { }
 
+  refresh(employeeID : number) : Observable<model[]>{
+ 
+    return this.getAncillary(employeeID);
+  }
+
   getAncillary(employeeID : number) : Observable<model[]>{
   
-    if(!this.downloaded){
+    const urlAddr : string = this.appSettings.getString(this.apiString + "getancillary");
 
-      const urlAddr : string = this.appSettings.getString(this.apiString + "getancillary");
-
-      let params = new HttpParams().set('employeeID', employeeID);
-      return this.http.get<model[]>(urlAddr, {params}).pipe(
+    let params = new HttpParams().set('employeeID', employeeID);
+    return this.http.get<model[]>(urlAddr, {params}).pipe(
                     map((data) => {
           
                     // const id = data[0].id;
       
                     this.list = data;
-                    this.downloaded = true;
+                
                     return data;
           
                   }),
                   catchError(this.handleError)
                 );
-    }
-    else{
-      return of(this.list);
-    }
-    
+ 
   }
   
   postAncillary(data : model[], employeeID : number) : Observable<model[]>{

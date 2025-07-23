@@ -4,6 +4,12 @@
 
 @if(deductions){
 
+   <label>Employee Number:&nbsp;&nbsp;
+       <a data-tooltip="View Details" style="color: black; text-decoration: underline;" [routerLink]="['/employeedetail', employeeID]">{{ employeeNumber }}</a>
+   </label>
+
+<a data-tooltip="Reload" href="#" style="float:right;" (click)="refreshDeductionsForEmployee($event)">Refresh</a>
+
 <table mat-table [dataSource]="deductions">
 
     <ng-container matColumnDef="select">

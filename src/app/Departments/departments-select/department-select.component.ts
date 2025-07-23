@@ -37,23 +37,28 @@ export class DepartmentSelectComponent implements OnInit{
 
   departments$ : Observable<EmployeeDepartmentForEmployee[]> | undefined;
   employeeID : number = -1
+  employeeNumber: string = "";
 
   ngOnInit(): void {
+    
     this.employeeID = Number(this.route.snapshot.params['id']);
+    this.employeeNumber = this.route.snapshot.params['number'];
+
     this.getDepartmentsForEmployee();
+  }
+
+  refreshDepartmentsForEmployee($event?: Event){
+
+    if($event != undefined){
+      $event.preventDefault();
+    }
+
+    this.departments$ = this.http.refresh(this.employeeID);
   }
 
   getDepartmentsForEmployee(){
 
-   this.http.getAncillary(this.employeeID).subscribe(
-    {
-      next: (data)=>{
-
-        this.departments$ = of(data);
-      }
-    }
-
-   );
+   this.departments$= this.http.getAncillary(this.employeeID);
 
   }
 

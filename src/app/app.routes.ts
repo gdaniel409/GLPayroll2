@@ -104,7 +104,7 @@ export const routes: Routes = [
     },
     {
 
-      path: 'deductionselect/:id',
+      path: 'deductionselect/:id/:number',
       title: 'Deduction Select',
       component: DeductionsSelectComponent,
     },
@@ -242,7 +242,7 @@ export const routes: Routes = [
     },
     {
 
-      path: 'departmentselect/:id',
+      path: 'departmentselect/:id/:number',
       title: 'Department Select',
       component: DepartmentSelectComponent,
 
@@ -272,7 +272,7 @@ export const routes: Routes = [
     },
     {
 
-      path: 'positionselect/:id',
+      path: 'positionselect/:id/:number',
       title: 'Position Select',
       component: PositionsSelectComponent,
 

@@ -15,8 +15,7 @@ export class EmployeeDeductionService<model>
   extends AncillaryHttpService<model>{
 
   public override apiString: string;
-  override downloaded: boolean = false;
-
+ 
   constructor() {
     super();
     this.apiString= "getdeductionsforemployee";

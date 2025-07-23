@@ -15,8 +15,7 @@ import { EmployeeDepartmentForEmployee } from '../../Models/EmployeeDepartmentFo
 export class EmployeeDepartmentService 
   extends AncillaryHttpService<EmployeeDepartmentForEmployee>{
   public override apiString: string;
-  override downloaded: boolean = false;
-
+  
   constructor() { 
     super();
     this.apiString = "getdepartmentsforemployee";
