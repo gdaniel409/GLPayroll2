@@ -1,7 +1,7 @@
 /*
-  This is a demo application developed by Gordon Daniel demonstrating how a payroll
+  This is a payroll application developed by Gordon Daniel demonstrating how a payroll
   application might work.  It is covered under the MIT license.
-  The application is presently incomplete and demonstrats a few basic functions.
+  
 
   Ledger HTTP service connects to a general ledger transaction API and creates
   GL Trxns.  It also authenticate users and returns an authentication token which

@@ -6,8 +6,8 @@
 <a href="#" routerLink="/createpayment">Create Payment</a><br />
  &nbsp; &nbsp; &nbsp; &nbsp; 
 
- <a href="#" style="float:right;" (click)="refreshPayments($event)">Refresh</a>
-
+ <a data-tooltip="Reload"  href="#" style="float:right;" (click)="refreshPayments($event)">Refresh</a>
+ 
 @if(payments){
 
 <table mat-table [dataSource]="payments">

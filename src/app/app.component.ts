@@ -1,3 +1,10 @@
+/*
+  This is a payroll application developed by Gordon Daniel demonstrating how a payroll
+  application might work.  It is covered under the MIT license.
+  
+
+  
+*/
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
