@@ -2,6 +2,12 @@
 
         This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
+        GLPayroll UI can be downloaded from "https://github.com/gdaniel409/GLPayroll2">. 
+        The API can be downloaded from https://github.com/gdaniel409/SubsidiaryAPI.
+        To see a demo version go to https://www.audiosl.com/glpayroll.
+
+        Contact  Gordon: gordondaniel409@gmail.com.
+        
         This is a project demonstrating how a payroll application might
         work developed using Angular 19 and Angular material. 
         The backend is an .NET MS MVC API application
@@ -23,13 +29,11 @@
             4. Enter the 'Units of Work' and DateTimes.
             5. Click-on 'Save.'
 
-   
-        GLPayroll UI can be downloaded from https://github.com/gdaniel409/GLPayroll2. 
-        The API can be downloaded from https://github.com/gdaniel409/SubsidiaryAPI.
-        To see a demo version go to https://www.audiosl.com/glpayroll.
+        Accounting:
 
-        Contact  Gordon: gordondaniel409@gmail.com.
-  
+        GLPayroll is a subsidiary ledger which means the data details are stored in the GLPayroll database.  For a production version, an ETL process should run at the close of every accounting period and create summay data which is entered into a general ledger's payroll journal such as GLAccounting.  
+
+        Another ETL process should run at the end of each pay period to distribute payroll payments through ACH checks.  It should be rare that it is necessary to manually make payroll payments though it is possible to do so.
 
         To install:
 
