@@ -67,9 +67,9 @@ export const appSettings : IAppSettings={
   title: 'GL Payroll',
   version: '1.0',
   hostGLApi: 'https://localhost:7277/',
-  hostSubApi: 'https://localhost:7283/',
+ // hostSubApi: 'https://localhost:7283/',
   authenticate: "api/authentication/authenticate",
-  //  hostSubApi: 'https://www.audiosl.com/GLSubsidiaryAPI/',
+  hostSubApi: 'https://www.audiosl.com/GLSubsidiaryAPI/',
   trxnEndPoint: 'api/GLLedger/trxn',
   trxnBatchEndPoint: 'api/GLLedger/trxns',
   postEndPoint: 'GLLedger/post',
@@ -80,13 +80,13 @@ export const appSettings : IAppSettings={
   listActivities: 'api/activities/list',
   createActivity: 'api/activities/create',
   updateActivity: 'api/activities/edit',
+  deleteActivity: "api/activities/delete",
 
   listActivityLogs: 'api/activityLog/list',
   listActivityLogsByEmployeeID: 'api/activityLog/listactivitylogforemployeebyemployeeid',
   listActivityLogsByEmployeeNumber: 'pi/activityLog/listbyemployeenumber',
   logActivityForEmployee: 'api/activityLog/logactivity',
 
-  listdeductions: 'api/Deductions/list',
   listPayments: 'api/payment/list',
   createPayment: "api/payment/create",
 
@@ -97,26 +97,25 @@ export const appSettings : IAppSettings={
   employeeTest: 'api/employees/testmethod',
   employeeStatuses: 'api/employees/employeestatus',
 
-  listDepartments: 'api/departments/list',
-  listPositions: 'api/positions/list',
-
-  deductionpaymetric: 'api/deductions/deductionpaymetrics',
-  deductiontypes: 'api/deductions/deductiontypes',
   employeestatuslist: 'api/employees/employeestatus',
   payRateTypes: 'api/payment/payratetypes',
 
-  updatededuction: 'api/deductions/edit',
-  createDeducton: "api/deductions/create",
-
-  createdepartment: 'api/departments/create',
-  updatedepartment: 'api/departments/edit',
+  listPositions: 'api/positions/list',
   createposition: 'api/positions/create',
   updateposition: 'api/positions/edit',
-
-  deleteDepartment: 'api/departments/delete',
   deletePosiiton: 'api/positions/delete',
+  
+  createdepartment: 'api/departments/create',
+  updatedepartment: 'api/departments/edit',
+  deleteDepartment: 'api/departments/delete',
+  listDepartments: 'api/departments/list',
+
   deleteDeduction: "api/deductions/delete",
-  deleteActivity: "api/activities/delete",
+  updatededuction: 'api/deductions/edit',
+  createDeducton: "api/deductions/create",
+  deductionpaymetric: 'api/deductions/deductionpaymetrics',
+  deductiontypes: 'api/deductions/deductiontypes',
+  listdeductions: 'api/Deductions/list',
 
   getString: function (value: string): string {
 

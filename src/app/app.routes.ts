@@ -35,13 +35,13 @@ import { departmentResolver } from './Resolvers/department-resolver.resolver';
 import { DepartmentsAddEditComponent } from './Departments/departments-add-edit/departments-add-edit.component';
 import { positionResolver } from './Resolvers/position.resolver';
 import { PositionAddEditComponent } from './Positions/positions-add-edit/position-add-edit/position-add-edit.component';
-import { PositionListComponent } from './Positions/positions-list/positon-list/positon-list.component';
 import { PositionsSelectComponent } from './Positions/positions-select/positions-select.component';
 import { DeductionsSelectComponent } from './Deductions/deductions-select/deductions-select.component';
 import { DepartmentSelectComponent } from './Departments/departments-select/department-select.component';
 import { DeductionDetailComponent } from './Deductions/deduction-detail/deduction-detail.component';
 import { DepartmentDetailComponent } from './Departments/department-detail/department-detail.component';
 import { PositionDetailComponent } from './Positions/position-detail/position-detail.component';
+import { PositionListComponent } from './Positions/positions-list/positon-list.component';
 
 export const routes: Routes = [
     

@@ -43,6 +43,9 @@ export class AppComponent implements OnInit {
         this.auth.key = model.key;
         this.auth.token = model.token;
         this.auth.authenticated = true;
+
+       // console.log("key: " + this.auth.key);
+       // console.log("token: " + this.auth.token);
       }
     });
     

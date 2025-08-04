@@ -109,6 +109,9 @@ export class DeductionsSelectComponent {
 
   onCheckAllSelection($event : any){
 
+   // $event.preventDefault();
+
+   
     if($event.checked)
     {
 

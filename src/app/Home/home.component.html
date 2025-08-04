@@ -9,16 +9,15 @@
         that connect to a MySql database.
         <br /><br />
         GLPayroll will currently handle about 25-30 employees. With a few modifications it could handle
-        hundreds of thousands, depending on the functional specification. In reality a lawn mowng service
-        would probably have very few or no employees.  For the application to be put into production a 
+        hundreds of thousands, depending on the functional specification. For the application to be put into production a 
         few modifications would need to made requiring more coding.  For example you most likely would not
         want to return all the activity logs at one time.  Probably just a small subset.
         <br /><br />
 
     </p>
     <p>
-        Interestingly, the production version is enabled with SignalR which enables real time updates.  If you have 
-        multiple clients running and one clients updates the database the other clients are notified to update their views.  
+        Interestingly, the production version is enabled with SignalR which enables real time updates (disabled
+        on the demo version).  If you have multiple clients running and one client updates the database the other clients are notified to refresh their views.  
     </p>
 
     <div>
@@ -32,9 +31,18 @@
 
         </ol>
     </div>
+    <p>
+        Accounting:
+
+        GLPayroll is a subsidiary ledger which means the data details are stored in the GLPayroll database.  For a production version, an ETL process should run at the close of every accounting period and create summay data which is entered into a general ledger's payroll journal such as GLAccounting.  
+
+        Another ETL process should run at the end of each pay period to distribute payroll payments through ACH checks.  It should be rare that it is necessary to manually make payroll payments though it is possible to do so.
+
+    </p>
    <p>
-        GLPayroll UI can be downloaded from https://github.com/gdaniel409/GLPayroll2. <br />
-        The API can be downloaded from https://github.com/gdaniel409/SubsidiaryAPI2.
+        GLPayroll UI can be downloaded from <a href="https://github.com/gdaniel409/GLPayroll2" target="_blank">https://github.com/gdaniel409/GLPayroll2.</a>. <br />
+        The API can be downloaded from <a href="https://github.com/gdaniel409/SubsidiaryAPI2" target="_blank">https://github.com/gdaniel409/SubsidiaryAPI2.</a><br />
+        <a href="mailto:gordondaniel409@gmail.com">Contact Gordon.</a>
    </p>
   
 

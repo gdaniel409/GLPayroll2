@@ -19,12 +19,12 @@ import { AuthenticationService } from '../Authentication/authentication.service'
 )
 export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<model>{
 
-  private http = inject(HttpClient);
-  private appSettings = inject(APP_SETTINGS);
-  private signalRService = inject(SignalRService);
-  private authenticationservice = inject(AuthenticationService);
+  public http = inject(HttpClient);
+  public appSettings = inject(APP_SETTINGS);
+  public signalRService = inject(SignalRService);
+  public authenticationservice = inject(AuthenticationService);
 
-  list: model[]=[];
+  public list: model[]=[];
   
   public abstract apiString: string;
   abstract downloaded: boolean;
@@ -98,7 +98,7 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
 
   }
 
-  public addItem(newItem: model): Observable<model> {
+  addItem(newItem: model): Observable<model> {
 
     const urlAddr : string = this.appSettings.getString(this.apiString + "additem");
 
@@ -170,7 +170,7 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
     
   }
 
-  private handleError(error: HttpErrorResponse) {
+  handleError(error: HttpErrorResponse) {
     let message = '';
 
     switch (error.status) {

@@ -13,7 +13,10 @@ import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 
 import { MatTableModule } from '@angular/material/table';
+import { MatRow } from '@angular/material/table';
 import { EmployeePayrollHttpService } from '../../Services/EmployeePayroll/employee-payroll.service';
+import { CommonModule } from '@angular/common';
+import { RowSelectorService } from '../../Services/RowSelector/row-selector.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -21,6 +24,8 @@ import { EmployeePayrollHttpService } from '../../Services/EmployeePayroll/emplo
     AsyncPipe, RouterModule,
     RouterLink,
     MatTableModule,
+    MatRow,
+    CommonModule,
   
    
 ],
@@ -31,9 +36,21 @@ import { EmployeePayrollHttpService } from '../../Services/EmployeePayroll/emplo
 export class EmployeeListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
-    private http : EmployeePayrollHttpService)
-    
+    private http : EmployeePayrollHttpService,
+    public rowIndex: RowSelectorService, 
+  )
   {}
+
+  
+
+  highlight(row: any) {
+   
+    this.rowIndex.rowIndex = row.id;
+  }
+
+  highlightEmployeeID(employeeID : number){
+    this.rowIndex.rowIndex = employeeID;
+  }
  
   ngOnInit(): void {
 

@@ -12,8 +12,8 @@ import { Observable, of, switchMap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 import { MatTableModule } from '@angular/material/table';
-import { PositionModel } from '../../../Models/PositionModel';
-import { PositionsHttpService } from '../../../Services/Positions/positions.service';
+import { PositionModel } from '../../Models/PositionModel';
+import { PositionsHttpService } from '../../Services/Positions/positions.service';
 import { MatTable } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 

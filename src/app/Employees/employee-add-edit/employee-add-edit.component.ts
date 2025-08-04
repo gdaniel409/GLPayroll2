@@ -31,6 +31,7 @@ import { Location } from '@angular/common';
 import { SubsidiaryHttpService } from '../../Services/SubPayroll/subsidiary-http-service.service';
 import { EmployeeStatusesComponent } from "../../Controls/DropdownControls/employee-statuses/employee-statuses.component";
 import { PayRateTypesComponent } from "../../Controls/DropdownControls/pay-rate-types/pay-rate-types.component";
+import { EmployeeTypeFactory } from '../../Factories/EmployeeTypFactory';
 //import { TestModel1, TestModelContainer1 } from '../../Models/TestModel1';
 
 @Component({
@@ -71,8 +72,6 @@ export class EmployeeAddEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpEmployeeService : EmployeePayrollHttpService,
-  //  private http: HttpClient,
-  
     public location: Location,
    
   ) 
@@ -144,6 +143,8 @@ export class EmployeeAddEditComponent implements OnInit {
 
   private createEmployee() {
 
+    const employeeTypeFactory = new EmployeeTypeFactory();
+
     const employeeModel : EmployeeModel ={
       companyID : 1,
       title: this.employeeFormGroup.value.title,
@@ -159,15 +160,8 @@ export class EmployeeAddEditComponent implements OnInit {
       telephoneCell: this.employeeFormGroup.value.telephoneCell,
       email: this.employeeFormGroup.value.email,
       rate: this.employeeFormGroup.value.rate,
-      employeeStatus: {
-        status: "n/a",
-        id: this.statusID
-      },
-      rateType:
-      {
-        id: this.rateTypeID,
-        description: "N/A"
-      },
+      employeeStatus: employeeTypeFactory.getEmployeeStatus(Number(this.statusID!)),
+      rateType: employeeTypeFactory.getRateType(Number(this.rateTypeID!)),
       id: -1,
     }
 
@@ -184,6 +178,8 @@ export class EmployeeAddEditComponent implements OnInit {
   }
 
   private updateEmployee() {
+
+    const employeeTypeFactory = new EmployeeTypeFactory();
 
     const employeeModel : EmployeeModel ={
 
@@ -203,15 +199,9 @@ export class EmployeeAddEditComponent implements OnInit {
       id: this.employeeID ?? -1,
       
       rate : this.employeeFormGroup.value.rate,
-      employeeStatus: {
-        status: "n/a",
-        id: this.statusID
-      },
-      rateType:
-      {
-        id: this.rateTypeID,
-        description: "N/A"
-      },
+      employeeStatus: employeeTypeFactory.getEmployeeStatus(Number(this.statusID!)),
+      rateType: employeeTypeFactory.getRateType(Number(this.rateTypeID!)),
+     
     }
 
     this.httpEmployeeService.updateItem(employeeModel).subscribe({

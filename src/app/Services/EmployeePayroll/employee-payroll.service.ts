@@ -7,10 +7,9 @@
 */
 import { Injectable } from '@angular/core';
 import { SignalRService } from '../SignalR/signal-rservice.service';
-import {Observable, of } from 'rxjs';
+import {catchError, map, Observable, of } from 'rxjs';
 import { EmployeeModel} from '../../Models/EmployeeModel';
 import { SubsidiaryHttpService } from '../SubPayroll/subsidiary-http-service.service';
-
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +23,55 @@ export class EmployeePayrollHttpService extends SubsidiaryHttpService<EmployeeMo
 
     this.apiString = "employeemodel";
 
+   }
+
+   override getList() : Observable<EmployeeModel[]>{
+
+    return super.getList().pipe(
+       map(data => {
+    
+          data.forEach(item=>{
+
+            item.ssn = item.ssn.substring(item.ssn.length - 4, item.ssn.length)
+
+          });
+             
+          return data;
+    
+        }),
+        catchError(this.handleError)
+    )
 
    }
 
- 
+   override updateItem(editItem: EmployeeModel): Observable<EmployeeModel> {
+
+        return  super.updateItem(editItem).pipe(map((data)=>{
+              
+            data.ssn = data.ssn.substring(data.ssn.length - 4, data.ssn.length)
+            return data;
+    
+          }),
+          catchError(this.handleError)
+        );
+
+   }
+
+  override addItem(newItem: EmployeeModel): Observable<EmployeeModel> {
+
+
+    return super.addItem(newItem).pipe(
+      map(data => {
+            
+       data.ssn = data.ssn.substring(data.ssn.length - 4, data.ssn.length)
+      return data;
+      }),
+      catchError(this.handleError)
+
+    )
+
+  }
+
   filterEmployeeList(filter: string): Observable<EmployeeModel[]> {
 
     if(filter === "*" || filter===""){
