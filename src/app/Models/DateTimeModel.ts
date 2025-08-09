@@ -1,6 +1,6 @@
-import { IMoment } from "../Interfaces/IMoment";
+import { IDatetime } from "../Interfaces/IDatetime";
 
-export class DateTimeModel implements IMoment{
+export class DateTimeModel implements IDatetime{
     month: number = 1;
     year: number = 1900;
     day: number = 1;

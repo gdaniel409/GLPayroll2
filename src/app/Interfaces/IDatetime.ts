@@ -1,4 +1,4 @@
-export interface IMoment{
+export interface IDatetime{
 
     month: number;
     year: number;
