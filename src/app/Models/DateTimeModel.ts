@@ -8,7 +8,8 @@ export class DateTimeModel implements IDatetime{
     time: number = 800;
     dateTime!: Date;
 
-    calculateDateTime() : void{
+    calculateDateTimeISO8601
+    () : void{
 
         let timeString : string = String(this.time);
 

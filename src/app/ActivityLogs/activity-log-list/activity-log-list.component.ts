@@ -52,11 +52,12 @@ export class ActivityLogListComponent implements OnInit {
   private getActivityLogs(){
 
     this.activityLogs$ = this.route.data.pipe(
-            switchMap(data =>
-              of(data['activitylogs']
-    
-              )) 
-          );
+        switchMap(data =>
+           of(data['activitylogs']
+   
+          )) 
+      );
+          
 
   }
 

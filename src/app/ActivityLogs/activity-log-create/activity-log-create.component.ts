@@ -144,6 +144,13 @@ export class ActivityLogCreateComponent implements OnInit {
         this.startDateComponentRef.hasErrors("Required");
         this.endDateComponentRef.hasErrors("Required");
 
+        //HACK: Convert to TypeScript date from IS0-8601 so the date can be displayed.  Seems there should be a better way
+        //to do this.
+        activityLogModel.dateTimeBeginActivity = new Date(activityLogModel.dateTimeBeginActivity!);
+        activityLogModel.dateTimeEndActivity = new Date(activityLogModel.dateTimeEndActivity!);
+        //******************************************************************************* */
+        
+
       }
     });
 

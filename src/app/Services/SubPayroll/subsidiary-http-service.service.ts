@@ -13,6 +13,7 @@ import { IHttp } from '../../Interfaces/IHttp';
 import { IID } from '../../Interfaces/IID';
 import { SignalRService } from '../SignalR/signal-rservice.service';
 import { AuthenticationService } from '../Authentication/authentication.service';
+import { formatDate } from '@angular/common';
 
 @Injectable(
   {providedIn: 'root'}
@@ -114,6 +115,7 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
     //************************************************************** */
     return this.http.post<model>(urlAddr, newItem).pipe(
           map(data => {
+            
             this.list.push(data);
             this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "additem");
             return data;

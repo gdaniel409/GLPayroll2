@@ -86,7 +86,7 @@ export class DateTimeComponent {
     this.dateTimeModel!.month = Number(parsedElements[1]);
     this.dateTimeModel!.day = Number(parsedElements[2]);
     this.dateTimeModel!.year = Number(parsedElements[0]);
-    this.dateTimeModel?.calculateDateTime();
+    this.dateTimeModel?.calculateDateTimeISO8601();
 
     if (this.selectionChange !== undefined) {
       this.selectionChange.emit(this.dateTimeModel);
@@ -118,7 +118,7 @@ export class DateTimeComponent {
       this.dateTimeModel!.time += 1200;
     }
 
-    this.dateTimeModel?.calculateDateTime();
+    this.dateTimeModel?.calculateDateTimeISO8601();
 
     if (this.selectionChange !== undefined) {
       this.selectionChange.emit(this.dateTimeModel);
