@@ -105,17 +105,17 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
     //************************************************************* */
     //For demo purposes only*******************************************
     //*************************************************************888 */
-    if(this.list != undefined && this.list.length > 0){
+    if(this.list !== undefined && this.list.length > 0){
     let largestValue = this.list.reduce((max, current) => (current.id! > max! ? current.id : max), this.list[0].id);
       newItem.id = ++largestValue!;
-    }else{
+    }else if(this.list !== undefined && this.list.length === 0){
       newItem.id = 1;
     }
     //************************************************************** */
     return this.http.post<model>(urlAddr, newItem).pipe(
           map(data => {
             this.list.push(data);
-            this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "addItem");
+            this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "additem");
             return data;
           }),
           catchError(this.handleError)
@@ -133,7 +133,7 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
     
             const ndx = this.list.findIndex(item=>item.id === editItem.id);
             this.list.splice(ndx, 1, editItem);
-            this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "updateItem");
+            this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "updateitem");
             return data;
     
           }),
@@ -159,7 +159,8 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
     
             const ndx = this.list.findIndex(item=>item.id === id);
             this.list.splice(ndx, 1);
-    
+
+            this.signalRService.sendMessage(this.authenticationservice.token, this.apiString, "deleteitem");
             return this.list;
     
           }),

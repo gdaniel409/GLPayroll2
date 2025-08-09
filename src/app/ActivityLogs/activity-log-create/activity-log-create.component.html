@@ -1,23 +1,36 @@
 
+<div style="margin-left: 5%; width: 100%;">
 
     <h1>Add Activity Log</h1>
-   
 
     <form [formGroup]="activityLogForm" (ngSubmit)="onSubmit()">
 
-         <mat-form-field style="width: 40%;">
+        <mat-form-field style="width: 40%;">
             <mat-label>Employee Number</mat-label>
             <input formControlName="employeenumber" matInput required />
             <mat-error>Employee Number is required</mat-error>
         </mat-form-field><br />
 
-          <mat-form-field style="width: 40%;">
+        <mat-form-field style="width: 40%;">
             <mat-label>Activity Number</mat-label>
             <input formControlName="activitynumber" matInput required />
             <mat-error>Employee Number is required</mat-error>
         </mat-form-field><br />
 
-        <mat-form-field style="width: 40%;">
+        <app-date-time #startDateTime [dateLabel]="startDateLabel"
+            (selectionChange)="handleStartDateChangeSelection($event)">
+        </app-date-time>
+
+        <br />
+
+        <app-date-time #endDateTime [dateLabel]="endDateLabel" 
+            (selectionChange)="handleEndDateChangeSelection($event)">
+        </app-date-time>
+
+
+        <br />
+
+        <!-- <mat-form-field style="width: 40%;">
             <mat-label>Date/Time Activity Began</mat-label>
             <input formControlName="dateBeginActivity" [matDatepicker]="picker" matInput />
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -32,12 +45,12 @@
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
           
-        </mat-form-field><br />
+        </mat-form-field><br /> -->
 
         <mat-form-field style="width: 40%;">
             <mat-label>Units Of Work</mat-label>
-            <input formControlName="unitsofwork" matInput />
-            
+            <input formControlName="unitsofwork" matInput required />
+            <mat-error>Units Of Work is required</mat-error>
         </mat-form-field><br />
 
         <div style="width: 40%;">
@@ -47,5 +60,7 @@
         </div>
 
 
-        
+
     </form>
+
+</div>

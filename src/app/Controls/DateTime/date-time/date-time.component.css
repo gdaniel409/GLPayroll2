@@ -1,0 +1,15 @@
+
+.border-style{
+    border: 1px solid;
+    border-color: blue;
+    border-radius: 6px;
+    width: 40%;
+}
+
+.colormeblue{
+    color: blue;
+}
+
+.colormeblack{
+    color: black;
+}

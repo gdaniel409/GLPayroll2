@@ -1,0 +1,71 @@
+
+<div class="border-style colormeblue">
+
+     <mat-label class="colormeblack"> {{dateLabel}}</mat-label><br /><br />
+    <mat-form-field style="width: 86%;">
+
+        <input
+        [value]="monthandyear"
+        (dateChange)="onMonthAndYearChanged($event)" [matDatepicker]="picker" matInput required/>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker  #picker >
+            <mat-error>{{dateLabel}} is required</mat-error>
+        </mat-datepicker>
+
+    </mat-form-field>
+    <button style="width: 10%; vertical-align: top;" (click)="clearSelection()">Clear</button>
+    <br />
+
+    <mat-form-field style="width: 66%;">
+        <mat-label>Time</mat-label>
+
+        <mat-select matSelect 
+        [value]="time" 
+        (selectionChange)="onTimeSelectionChange($event)" [compareWith]="compare">
+            <mat-option value="1200">12:00</mat-option>
+            <mat-option value="1230">12:30</mat-option>
+            <mat-option value="100">1:00</mat-option>
+            <mat-option value="130">1:30</mat-option>
+            <mat-option value="200">2:00</mat-option>
+            <mat-option value="230">2:30</mat-option>
+
+            <mat-option value="300">3:00</mat-option>
+            <mat-option value="330">3:30</mat-option>
+            <mat-option value="400">4:00</mat-option>
+            <mat-option value="430">4:30</mat-option>
+            <mat-option value="500">5:00</mat-option>
+            <mat-option value="530">5:30</mat-option>
+
+            <mat-option value="600">6:00</mat-option>
+            <mat-option value="630">6:30</mat-option>
+            <mat-option value="700">7:00</mat-option>
+            <mat-option value="730">7:30</mat-option>
+            <mat-option value="800">8:00</mat-option>
+            <mat-option value="830">8:30</mat-option>
+
+            <mat-option value="900">9:00</mat-option>
+            <mat-option value="930">9:30</mat-option>
+            <mat-option value="1000">10:00</mat-option>
+            <mat-option value="1030">10:30</mat-option>
+            <mat-option value="1100">11:00</mat-option>
+            <mat-option value="1130">11:30</mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+    <mat-form-field style="width: 30%;">
+
+        <mat-label>AM/PM</mat-label>
+
+        <mat-select matSelect
+        [value]="ampm" 
+         (selectionChange)="onAMPMSelectionChange($event)" [compareWith]="compare">
+            <mat-option value="AM">AM</mat-option>
+            <mat-option value="PM">PM</mat-option>
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-label style="color: red">{{error}}</mat-label>
+
+</div>

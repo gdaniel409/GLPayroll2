@@ -22,17 +22,15 @@ import { MatNativeDateModule, MatOption } from '@angular/material/core';
 
 import { EmployeePayrollHttpService } from '../../Services/EmployeePayroll/employee-payroll.service';
 import { EmployeeModel } from '../../Models/EmployeeModel';
-import { EmployeeStatusModel } from '../../Models/EmployeeStatusModel';
-import { RateTypeModel } from '../../Models/RateTypeModel';
+// import { EmployeeStatusModel } from '../../Models/EmployeeStatusModel';
+// import { RateTypeModel } from '../../Models/RateTypeModel';
 
 
 
 import { Location } from '@angular/common';
-import { SubsidiaryHttpService } from '../../Services/SubPayroll/subsidiary-http-service.service';
 import { EmployeeStatusesComponent } from "../../Controls/DropdownControls/employee-statuses/employee-statuses.component";
 import { PayRateTypesComponent } from "../../Controls/DropdownControls/pay-rate-types/pay-rate-types.component";
 import { EmployeeTypeFactory } from '../../Factories/EmployeeTypFactory';
-//import { TestModel1, TestModelContainer1 } from '../../Models/TestModel1';
 
 @Component({
   selector: 'app-employee-add-edit',
@@ -49,7 +47,8 @@ import { EmployeeTypeFactory } from '../../Factories/EmployeeTypFactory';
     MatNativeDateModule,
     MatSelect,
     EmployeeStatusesComponent,
-    PayRateTypesComponent
+    PayRateTypesComponent,
+  
 ],
  
   templateUrl: './employee-add-edit.component.html',
@@ -62,7 +61,6 @@ export class EmployeeAddEditComponent implements OnInit {
   statusID : number | undefined;
   rateTypeID : number | undefined;
   isAddMode: boolean = false;
-  //test: number | undefined
   loading = false;
   submitted = false;
   
@@ -84,7 +82,7 @@ export class EmployeeAddEditComponent implements OnInit {
   this.isAddMode = !this.employeeID;
     
     this.employeeFormGroup = this.formBuilder.group({
-      //  id : ['', Validators.required],
+      
         title: ['', Validators.required],
         employeeNumber: ['', Validators.required],
         firstName: ['', Validators.required],

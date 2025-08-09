@@ -2,6 +2,8 @@
 
         This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
+        revision: 2.0.0
+        
         GLPayroll UI can be downloaded from "https://github.com/gdaniel409/GLPayroll2">. 
         The API can be downloaded from https://github.com/gdaniel409/SubsidiaryAPI.
         To see a demo version go to https://www.audiosl.com/glpayroll.
