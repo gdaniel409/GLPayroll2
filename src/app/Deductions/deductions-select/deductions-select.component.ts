@@ -60,6 +60,7 @@ export class DeductionsSelectComponent {
 
     if($event != undefined){
       $event.preventDefault();
+   
     }
 
     this.deductions$ = this.httpGet.refresh(this.employeeID);

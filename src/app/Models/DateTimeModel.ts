@@ -16,7 +16,7 @@ export class DateTimeModel implements IDatetime{
         let hour: string = timeString.substring(0, timeString.length - 2);
         let minute: string = timeString.substring(timeString.length - 2, timeString.length);
 
-        let time : string = "T" + hour.padStart(2, "0") + ":" + minute.padStart(2, "0") + ":00.000Z";
+        let time : string = "T" + hour.padStart(2, "0") + ":" + minute.padStart(2, "0") + ":00Z";
         
         let monthAndYear : string = String(this.year) + "-" + String(this.month).padStart(2, "0") + 
             "-" + String(this.day).padStart(2, "0");
@@ -24,7 +24,7 @@ export class DateTimeModel implements IDatetime{
         let datetime: string = monthAndYear + time;
 
         this.dateTime = new Date(datetime);
-  
+                 
     };
 
     

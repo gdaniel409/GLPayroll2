@@ -21,11 +21,19 @@ import { DateTimeModel as DateTimeModel } from '../../../Models/DateTimeModel';
   styleUrl: './date-time.component.css'
 })
 export class DateTimeComponent {
-  clearSelection() {
+
+  clearSelection(event?: Event) {
+
+    if(event != undefined){
+      event.preventDefault();
+    }
+
     this.dateTimeModel = undefined;
     this.monthandyear = "";
+    this.ampm = "AM";
+    this.time = "800";
 
-    if (this.selectionChange !== undefined) {
+    if (this.selectionChange != undefined) {
 
       this.selectionChange.emit(this.dateTimeModel);
 
@@ -78,10 +86,25 @@ export class DateTimeComponent {
 
     const format = 'yyyy-MM-dd';
     const myDate = event.value;
+   
     const locale = 'en-US';
     this.monthandyear = formatDate(myDate, format, locale);
 
-    const parsedElements: string[] = this.monthandyear.split("-");
+    const parsedElements: string[] = this.monthandyear.split("-")
+
+    parsedElements[0]=parsedElements[0].trim();
+    parsedElements[1]=parsedElements[1].trim();
+    parsedElements[2]=parsedElements[2].trim();
+
+    if(parsedElements[1].startsWith("0"))
+    {
+      parsedElements[1] = parsedElements[1].substring(1, 2);
+    }
+
+    if(parsedElements[2].startsWith("0"))
+    {
+      parsedElements[2] = parsedElements[2].substring(1, 2);
+    }
 
     this.dateTimeModel!.month = Number(parsedElements[1]);
     this.dateTimeModel!.day = Number(parsedElements[2]);

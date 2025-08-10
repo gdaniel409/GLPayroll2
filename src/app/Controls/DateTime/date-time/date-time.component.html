@@ -1,9 +1,9 @@
 
 <div class="border-style colormeblue">
 
-     <mat-label class="colormeblack"> {{dateLabel}}</mat-label><br /><br />
-    <mat-form-field style="width: 86%;">
-
+     <mat-label style="float: left;" class="colormeblack"> {{dateLabel}}</mat-label><button style="width: 10%; vertical-align: top; float: right; margin-right: 4%;" (click)="clearSelection($event)">Clear</button><br /><br />
+    <mat-form-field style="width: 96%;">
+        
         <input
         [value]="monthandyear"
         (dateChange)="onMonthAndYearChanged($event)" [matDatepicker]="picker" matInput required/>
@@ -13,9 +13,7 @@
         </mat-datepicker>
 
     </mat-form-field>
-    <button style="width: 10%; vertical-align: top;" (click)="clearSelection()">Clear</button>
     <br />
-
     <mat-form-field style="width: 66%;">
         <mat-label>Time</mat-label>
 
@@ -65,7 +63,7 @@
         </mat-select>
 
     </mat-form-field>
-
-    <mat-label style="color: red">{{error}}</mat-label>
-
+    
+    <label style="color: red;">{{error}}</label>
+ 
 </div>
