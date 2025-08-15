@@ -69,12 +69,12 @@ export class EmployeeListComponent implements OnInit {
  
   private getEmployees() {
 
-      this.employees$ = this.route.data.pipe(
-        switchMap(data =>
-           of(data['employees']
-   
-          )) 
-      );
+     this.employees$  = this.route.data.pipe(
+            switchMap(data =>
+              of(data['employees']
+    
+              )) 
+          );
    
   }
 

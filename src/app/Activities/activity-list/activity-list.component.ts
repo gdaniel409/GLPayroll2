@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
 import { ActivitiesHttpService } from '../../Services/Activities/activites.service';
+import { IHttp } from '../../Interfaces/IHttp';
 
 @Component({
   selector: 'app-activity-list',
@@ -23,43 +24,42 @@ import { ActivitiesHttpService } from '../../Services/Activities/activites.servi
     MatCardModule,
     MatTableModule,
     MatTable,
-    
+
   ],
-  
+
   templateUrl: './activity-list.component.html',
   styleUrl: './activity-list.component.css'
 })
-export class ActivityListComponent  implements OnInit{
+export class ActivityListComponent implements OnInit {
 
-constructor(private route: ActivatedRoute, private http: ActivitiesHttpService)
-{}
-  
- 
+  constructor(public route: ActivatedRoute, private http: ActivitiesHttpService) { }
+
+
   ngOnInit(): void {
 
     this.getActivities();
   }
 
-  activities$ : Observable<ActivitiesModel[]> | undefined;
-  columnNames = ['activitynumber','description','active','edit' ];
- 
-  private getActivities()
-  {
+  activities$: Observable<ActivitiesModel[]> | undefined;
+  columnNames = ['activitynumber', 'description', 'active', 'edit'];
+
+  private getActivities() {
     this.activities$ = this.route.data.pipe(
-            switchMap(data =>
-              of(data['activities']
-    
-              )) 
-          );
+      switchMap(data =>
+        of(data['activities']
+
+        ))
+    );
+
   }
 
   refreshActivities($event?: Event): void {
-   
-    if($event != undefined)
-    {
+
+    if ($event != undefined) {
       $event.preventDefault();
     }
-     this.activities$ = this.http.refresh();
+
+    this.activities$ = this.http.refresh();
 
   }
 

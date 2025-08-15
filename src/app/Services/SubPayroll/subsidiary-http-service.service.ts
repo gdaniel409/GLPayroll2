@@ -8,7 +8,7 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpStatusCode } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { APP_SETTINGS } from '../../app.settings';
-import { catchError, map, Observable, of, throwError } from 'rxjs';
+import { catchError, map, Observable, of, switchMap, throwError } from 'rxjs';
 import { IHttp } from '../../Interfaces/IHttp';
 import { IID } from '../../Interfaces/IID';
 import { SignalRService } from '../SignalR/signal-rservice.service';
@@ -146,7 +146,9 @@ export abstract class SubsidiaryHttpService<model extends IID> implements IHttp<
   refresh(): Observable<model[]> {
 
     this.downloaded = false;
-    return this.getList();
+    return this.getList().pipe(
+      switchMap(data=>of(data))
+    );
     
   }
 

@@ -67,7 +67,7 @@ export const appSettings : IAppSettings={
   title: 'GL Payroll',
   version: '1.0',
   hostGLApi: 'https://localhost:7277/',
-  //dist/glpayroll/prerendered-routes.json dist/glpayroll/browser dist/glpayroll/3rdpartylicenses.txthostSubApi: 'https://localhost:7283/',
+//  hostSubApi: 'https://localhost:7283/',
   authenticate: "api/authentication/authenticate",
   hostSubApi: 'https://www.audiosl.com/GLSubsidiaryAPI/',
   trxnEndPoint: 'api/GLLedger/trxn',
