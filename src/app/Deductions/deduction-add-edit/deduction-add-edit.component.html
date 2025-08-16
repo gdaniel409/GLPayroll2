@@ -10,13 +10,13 @@
 
     <form [formGroup]="deductionForm" (ngSubmit)="onSubmit()">
 
-        <mat-form-field style="width: 40%;">
+        <mat-form-field class="lbl-detail">
             <mat-label>Name</mat-label>
             <input formControlName="name" matInput required maxlength="45"/>
             <mat-error>Name is required</mat-error>
         </mat-form-field><br />
 
-        <mat-form-field style="width: 40%;">
+        <mat-form-field class="lbl-detail">
             <mat-label>Description</mat-label>
             <input formControlName="description" matInput required maxlength="100"/>
             <mat-error>Description is required</mat-error>
@@ -35,7 +35,7 @@
 
         <div [hidden] = "!showamount">
 
-            <mat-form-field style="width: 40%;">
+            <mat-form-field class="lbl-detail">
                 <mat-label>Fixed Amount</mat-label>
                 <input formControlName="amount" matInput/>
             
@@ -45,7 +45,7 @@
 
         <div [hidden]="!showpercent">
 
-            <mat-form-field style="width: 40%;" >
+            <mat-form-field class="lbl-detail" >
                 <mat-label>Percentage</mat-label>
                 <input formControlName="percentage" matInput/>
             
@@ -57,7 +57,7 @@
                 Active/Inactive
          </mat-checkbox>
 
-        <div style="width: 40%;">
+        <div class="lbl-detail">
             <button mat-raised-button type="submit" [disabled]="loading">
                 Save
             </button><br />

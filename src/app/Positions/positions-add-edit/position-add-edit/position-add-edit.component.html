@@ -9,14 +9,14 @@
 
     <form [formGroup]="positionForm" (ngSubmit)="onSubmit()">
 
-        <mat-form-field style="width: 40%;">
+        <mat-form-field class="lbl-detail">
             <mat-label>Name</mat-label>
             <input formControlName="name" matInput required maxlength="45"/>
             <mat-error>Name is required</mat-error>
         </mat-form-field><br />
 
 
-        <mat-form-field style="width: 40%;">
+        <mat-form-field class="lbl-detail">
             <mat-label>Description</mat-label>
             <textarea style="width: 100%; height: 250px;" formControlName="description" maxlength="200" matInput required></textarea>
             <mat-error>Description is required</mat-error>
@@ -27,7 +27,7 @@
         </mat-checkbox> 
 
 
-        <div style="width: 40%;">
+        <div class="lbl-detail">
             <button mat-raised-button type="submit" [disabled]="loading">
                 Save
             </button><br />
